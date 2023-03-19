@@ -20,12 +20,9 @@ export class LocalStorageRepositoryService {
   load() {
     let itemsFromLocalStorage = localStorage.getItem(this._key);
     
-    if(!itemsFromLocalStorage) {
-      this._items = [];
-      return;
+    if(itemsFromLocalStorage) {
+      this._items = JSON.parse(itemsFromLocalStorage!);
     }
-
-    this._items = JSON.parse(itemsFromLocalStorage!);
   }
 
   save(items: Item[]) {
