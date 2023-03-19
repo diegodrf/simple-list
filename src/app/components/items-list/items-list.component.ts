@@ -21,4 +21,16 @@ export class ItemsListComponent implements OnInit {
     this.items.splice(index, 1);
   }
 
+  moveItemUp(currentIndex: number) {
+    if(currentIndex === 0) {
+      return;
+    }
+
+    let targetIndex = currentIndex - 1;
+    let selectedItem = this.items[currentIndex];
+    let itemPositionedInTargetPosition = this.items[targetIndex];
+    this.items.fill(selectedItem, targetIndex, currentIndex);
+    this.items[currentIndex] = itemPositionedInTargetPosition;
+  }
+
 }
