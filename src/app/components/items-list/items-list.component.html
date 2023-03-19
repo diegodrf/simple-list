@@ -1,6 +1,6 @@
 <ul class="list-group">
     <li class="list-group-item d-flex justify-content-between" *ngFor="let item of items; let i = index">
-        {{item}}
+        {{item.name}}
         <div>
         <i class="bi bi-arrow-up" (click)="moveItemUp(i)"></i>
         <i class="bi bi-arrow-down" (click)="moveItemDown(i)"></i>
