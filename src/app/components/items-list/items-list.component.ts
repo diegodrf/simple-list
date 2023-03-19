@@ -15,7 +15,10 @@ export class ItemsListComponent implements OnInit {
     for(let i = 1; i<= 10; i++){
       this.items.push(`Element #${i}`);
     }
-    
+  }
+
+  removeItem(index: number) {
+    this.items.splice(index, 1);
   }
 
 }
