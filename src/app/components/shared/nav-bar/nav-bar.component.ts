@@ -19,4 +19,8 @@ export class NavBarComponent implements OnInit {
     this._router.navigate(['']);
   }
 
+  goToCreate() {
+    this._router.navigate(['items', 'new']);
+  }
+
 }
