@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+    max-width: 800px;
+    min-width: 25px;
+
+    max-height: 600px;
+    min-width: 25px;
+}
