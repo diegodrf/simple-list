@@ -1,6 +1,10 @@
 <ul class="list-group">
-    <li class="list-group-item" *ngFor="let item of items; let i = index">
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let item of items; let i = index">
         {{item}}
+        <div>
+        <i class="bi bi-chevron-up" *ngIf="i !== 0" (click)="moveItemUp(i)"></i>
+        <i class="bi bi-chevron-down" *ngIf="i !== items.length - 1"></i>
         <i class="bi bi-trash" (click)="removeItem(i)"></i>
+    </div>
     </li>
 </ul>
