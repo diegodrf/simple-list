@@ -31,4 +31,8 @@ export class LocalStorageRepositoryService {
   save(items: Item[]) {
     localStorage.setItem(this._key, JSON.stringify(items));
   }
+
+  getItemById(id: number) {
+    return this._items[id];
+  }
 }
