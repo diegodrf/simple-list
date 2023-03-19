@@ -22,7 +22,7 @@ export class ItemsListComponent implements OnInit {
     this.items = this._localStorageRepository.items;
     
     if(this.items.length === 0) {
-      for(let i = 1; i<= 10; i++) {
+      for(let i = 1; i<= 100; i++) {
         let _ = new Item(`Item #${i}`, 'http://localhost:4200');
         this.items.push(_);
       }
