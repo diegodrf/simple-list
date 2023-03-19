@@ -3,6 +3,7 @@
 body {
     max-width: 800px;
     min-width: 25px;
+    width: 600px;
 
     max-height: 600px;
     min-width: 25px;
