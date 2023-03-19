@@ -62,4 +62,7 @@ export class ItemsListComponent implements OnInit {
     this._localStorageRepository.save(this.items);
   }
 
+  openLink(itemId: number) {
+    window.open(this.items[itemId].url, '_blank');
+  }
 }
