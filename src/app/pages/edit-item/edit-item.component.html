@@ -9,6 +9,7 @@
             ngModel
             name="title"
             required
+            [disabled]="readonly"
         >
     </div>
     <div class="mb-3">
@@ -22,6 +23,7 @@
             name="url"
             required
             [pattern]="urlRegex"
+            [disabled]="readonly"
         >
     </div>
     <div class="mb-3">
@@ -33,9 +35,11 @@
             placeholder="Inert your description or annotations here."
             ngModel
             name="description"
+            [disabled]="readonly"
         ></textarea>
     </div>
     <div class="d-flex justify-content-end">
-        <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Save</button>
+        <button class="btn btn-success" type="submit" [disabled]="f.invalid" *ngIf="!readonly">Save</button>
+        <button class="btn btn-primary" type="submit" [disabled]="f.invalid" *ngIf="readonly" (click)="enableEditMode()">Edit</button>
     </div>
 </form>

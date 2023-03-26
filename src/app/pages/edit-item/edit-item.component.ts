@@ -51,11 +51,16 @@ export class EditItemComponent implements OnInit {
     let item = new Item(this.form.value.title, this.form.value.url);
     this.localStorageRepository.save(item);
     this.router.navigate(['/']);
+    this.readonly = true;
   }
 
   populateFields() {
     // TODO Insert logic to get website data using chrome API and populate the fields.
     this.form.form.patchValue({});
     throw new Error('Not implemented.');
+  }
+
+  enableEditMode() {
+    this.readonly = false;
   }
 }
