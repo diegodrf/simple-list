@@ -12,12 +12,12 @@ import { LocalStorageRepositoryService } from 'src/app/services/local-storage-re
 })
 export class NewItemComponent implements OnInit {
 
-  private _urlRegex = '/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/'
-  get urlRegex(): string {
+  private _urlRegex = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
+  get urlRegex(): RegExp {
     return this._urlRegex;
   }
 
-  // @ViewChild() form: NgForm;
+  @ViewChild('f') form!: NgForm;
 
   constructor(
     private localStorageRepository: LocalStorageRepositoryService,
@@ -27,9 +27,9 @@ export class NewItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  save(form: NgForm) {
-    console.log(form.value);
-    let item = new Item(form.value.title, form.value.url);
+  save() {
+    console.log(this.form.value);
+    let item = new Item(this.form.value.title, this.form.value.url);
     this.localStorageRepository.save(item);
     this.router.navigate(['/']);
   }

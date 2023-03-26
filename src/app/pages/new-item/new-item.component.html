@@ -1,4 +1,4 @@
-<form (ngSubmit)="save(f)" #f="ngForm">
+<form (ngSubmit)="save()" #f="ngForm">
     <div class="mb-3">
         <label for="pageTitle" class="form-label">Title</label>
         <input 
@@ -21,6 +21,7 @@
             ngModel
             name="url"
             required
+            [pattern]="urlRegex"
         >
     </div>
     <div class="mb-3">
