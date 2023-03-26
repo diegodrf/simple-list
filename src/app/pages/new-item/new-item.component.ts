@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { from } from 'rxjs';
 import { Item } from 'src/app/models/item';
 import { LocalStorageRepositoryService } from 'src/app/services/local-storage-repository.service';
 
