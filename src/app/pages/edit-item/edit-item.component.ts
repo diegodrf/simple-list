@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Data, Params, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Item } from 'src/app/models/item';
 import { LocalStorageRepositoryService } from 'src/app/services/local-storage-repository.service';
 
@@ -10,7 +9,7 @@ import { LocalStorageRepositoryService } from 'src/app/services/local-storage-re
   templateUrl: './edit-item.component.html',
   styleUrls: ['./edit-item.component.css']
 })
-export class EditItemComponent implements OnInit {
+export class EditItemComponent implements OnInit, AfterViewChecked {
 
   private _urlRegex = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/;
   get urlRegex(): RegExp {
@@ -36,6 +35,14 @@ export class EditItemComponent implements OnInit {
         this.getItem();
       }
     });
+  }
+
+  ngAfterViewChecked(): void {
+    this.form.form.patchValue({
+      name: this.item?.name,
+      url: this.item?.url
+    });
+    console.log(this.form.form);
   }
 
   getItem() {
