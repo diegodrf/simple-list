@@ -13,13 +13,14 @@ const routes: Routes = [
     'path': 'items',
     'children': [
       {
+        'path': 'new',
+        'component': NewItemComponent
+      },
+      {
         'path': ':id',
         'component': ItemDetailComponent
       },
-      {
-        'path': 'new',
-        'component': NewItemComponent
-      }
+      
     ]
   }
 ];
