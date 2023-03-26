@@ -9,3 +9,7 @@ body {
     min-width: 25px;
     height: 600px;
 }
+
+input.ng-invalid.ng-touched {
+    border: 1px red solid;
+}
