@@ -32,4 +32,10 @@ export class NewItemComponent implements OnInit {
     this.localStorageRepository.save(item);
     this.router.navigate(['/']);
   }
+
+  populateFields() {
+    // TODO Insert logic to get website data using chrome API and populate the fields.
+    this.form.form.patchValue({});
+    throw new Error('Not implemented.');
+  }
 }
