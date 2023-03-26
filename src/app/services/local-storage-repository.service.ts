@@ -25,7 +25,12 @@ export class LocalStorageRepositoryService {
     }
   }
 
-  save(items: Item[]) {
+  save(item: Item) {
+    this._items.push(item);
+    this.updateItemsList(this._items);
+  }
+
+  updateItemsList(items: Item[]) {
     localStorage.setItem(this._key, JSON.stringify(items));
   }
 

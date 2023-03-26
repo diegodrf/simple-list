@@ -22,7 +22,7 @@ export class ItemsListComponent implements OnInit {
     this.items = this._localStorageRepository.items;
     
     if(this.items.length === 0) {
-      for(let i = 1; i<= 100; i++) {
+      for(let i = 1; i<= 5; i++) {
         let _ = new Item(`Item #${i}`, 'http://localhost:4200');
         this.items.push(_);
       }
@@ -31,7 +31,7 @@ export class ItemsListComponent implements OnInit {
 
   removeItem(index: number) {
     this.items.splice(index, 1);
-    this._localStorageRepository.save(this.items);
+    this._localStorageRepository.updateItemsList(this.items);
   }
 
   moveItemUp(currentIndex: number) {
@@ -45,7 +45,7 @@ export class ItemsListComponent implements OnInit {
     this.items.fill(selectedItem, targetIndex, currentIndex);
     this.items[currentIndex] = itemPositionedInTargetPosition;
     
-    this._localStorageRepository.save(this.items);
+    this._localStorageRepository.updateItemsList(this.items);
   }
 
   moveItemDown(currentIndex: number) {
@@ -59,7 +59,7 @@ export class ItemsListComponent implements OnInit {
     this.items.fill(itemPositionedInTargetPosition, currentIndex, targetIndex);
     this.items[targetIndex] = selectedItem;
     
-    this._localStorageRepository.save(this.items);
+    this._localStorageRepository.updateItemsList(this.items);
   }
 
   openLink(itemId: number) {
