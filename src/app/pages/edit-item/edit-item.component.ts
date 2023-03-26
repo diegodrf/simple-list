@@ -38,24 +38,23 @@ export class EditItemComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    this.form.form.patchValue({
-      name: this.item?.name,
-      url: this.item?.url
-    });
-    console.log(this.form.form);
+    if(this.readonly) {
+      this.form.form.patchValue({
+        name: this.item?.name,
+        url: this.item?.url
+      });
+    }
   }
 
   getItem() {
     this.activatedRoute.params.subscribe((value: Params) => {
       let id = Number.parseInt(value['id']);
       this.item = this.localStorageRepository.getItemById(id);
-      console.log(this.item);
     });
   }
 
   save() {
-    console.log(this.form.value);
-    let item = new Item(this.form.value.title, this.form.value.url);
+    let item = new Item(this.form.value.name, this.form.value.url);
     this.localStorageRepository.save(item);
     this.router.navigate(['/']);
     this.readonly = true;
