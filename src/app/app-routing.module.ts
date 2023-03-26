@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ItemsListComponent } from './pages/items-list/items-list.component';
-import { ItemDetailComponent } from './pages/item-detail/item-detail.component';
-import { NewItemComponent } from './pages/new-item/new-item.component';
+import { EditItemComponent } from './pages/edit-item/edit-item.component';
 
 const routes: Routes = [
   {
@@ -14,11 +13,13 @@ const routes: Routes = [
     'children': [
       {
         'path': 'new',
-        'component': NewItemComponent
+        'component': EditItemComponent,
+        'data': { 'readonly': false }
       },
       {
         'path': ':id',
-        'component': ItemDetailComponent
+        'component': EditItemComponent,
+        'data': { 'readonly': true }
       },
       
     ]

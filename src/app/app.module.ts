@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { ItemsListComponent } from './pages/items-list/items-list.component';
 import { NavBarComponent } from './components/shared/nav-bar/nav-bar.component';
 import { ItemDetailComponent } from './pages/item-detail/item-detail.component';
-import { NewItemComponent } from './pages/new-item/new-item.component';
+import { EditItemComponent } from './pages/edit-item/edit-item.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { NewItemComponent } from './pages/new-item/new-item.component';
     ItemsListComponent,
     NavBarComponent,
     ItemDetailComponent,
-    NewItemComponent
+    EditItemComponent
   ],
   imports: [
     BrowserModule,
