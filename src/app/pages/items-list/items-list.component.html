@@ -1,9 +1,8 @@
 <ul class="list-group">
     <li 
-        [routerLink]="['items', i]"
         class="list-group-item d-flex justify-content-between" 
         *ngFor="let item of items; let i = index">
-        <span>{{item.name}}</span>
+        <div [routerLink]="['items', i]">{{item.name}}</div>
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-light" (click)="openLink(i)"><i class="bi bi-box-arrow-up-right"></i></button>
             <button type="button" class="btn btn-light" (click)="moveItemUp(i)"><i class="bi bi-arrow-up"></i></button>
