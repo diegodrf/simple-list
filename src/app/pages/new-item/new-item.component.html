@@ -1,17 +1,38 @@
-<form>
+<form (ngSubmit)="save(f)" #f="ngForm">
     <div class="mb-3">
         <label for="pageTitle" class="form-label">Title</label>
-        <input type="email" class="form-control" id="pageTitle" placeholder="Example Title">
+        <input 
+            type="text" 
+            class="form-control" 
+            id="pageTitle" 
+            placeholder="Example Title"
+            ngModel
+            name="title"
+        >
     </div>
     <div class="mb-3">
         <label for="url" class="form-label">Url</label>
-        <input type="email" class="form-control" id="url" placeholder="https://www.example.com">
+        <input 
+            type="text" 
+            class="form-control" 
+            id="url" 
+            placeholder="https://www.example.com"
+            ngModel
+            name="url"
+        >
     </div>
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <textarea class="form-control" id="description" rows="3" placeholder="Inert your description or annotations here."></textarea>
+        <textarea 
+            class="form-control" 
+            id="description" 
+            rows="3" 
+            placeholder="Inert your description or annotations here."
+            ngModel
+            name="description"
+        ></textarea>
     </div>
     <div class="d-flex justify-content-end">
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary" type="submit">Save</button>
     </div>
 </form>
