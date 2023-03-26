@@ -8,6 +8,7 @@
             placeholder="Example Title"
             ngModel
             name="title"
+            required
         >
     </div>
     <div class="mb-3">
@@ -19,6 +20,8 @@
             placeholder="https://www.example.com"
             ngModel
             name="url"
+            required
+            [pattern]="urlRegex"
         >
     </div>
     <div class="mb-3">

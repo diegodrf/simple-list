@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
@@ -11,6 +11,13 @@ import { LocalStorageRepositoryService } from 'src/app/services/local-storage-re
   styleUrls: ['./new-item.component.css']
 })
 export class NewItemComponent implements OnInit {
+
+  private _urlRegex = '/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/'
+  get urlRegex(): string {
+    return this._urlRegex;
+  }
+
+  // @ViewChild() form: NgForm;
 
   constructor(
     private localStorageRepository: LocalStorageRepositoryService,
